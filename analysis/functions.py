@@ -83,7 +83,7 @@ def map_scatter(x, y, c, **kwargs):
     """
     <c> is the name of the marker of interest
     Pass in the color and dataframe as well.
-    """
+    
     df = kwargs.pop("data")
     marker = df['Marker'].iloc[0]  # Get the marker name for the current facet
     vmin = df[c].min()
@@ -93,7 +93,7 @@ def map_scatter(x, y, c, **kwargs):
     kwargs.pop("vmax", None)
     scatter = plt.scatter(df[x], df[y], c=df[c], vmin=vmin, vmax=vmax, **kwargs)
     plt.colorbar(scatter, ax=plt.gca(), label=f'{marker} Intensity')
-
+    
 def leiden_cluster(embedding, res, config=None):
     """
     Perform Leiden clustering on spatial data using k-nearest neighbors.
